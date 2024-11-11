@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="es" translate="no">
+
+<!--Encabezado-->
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Evidencia 3</title>
+
+    <!--Icono de pagina-->
+    <link rel="icon" type="image/x-icon" href="img/icono.png">
+
+    <link rel="stylesheet" type="text/css" href="css/sitio.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
+</head>
+
+<!--Cuerpo de la pagina-->
+
+<body>
+    <!--Encabezado de pagina-->
+    <header class="p-3">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-3">
+                    <!--Columna vacia-->
+                </div>
+                <div class="col-md-9">
+                    <h1><i class="bi bi-globe2"></i><a href="#" class="text-dark text-decoration-none"> Evidencia #3</a></h1>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Contenido Principal -->
+    <div class="container-fluid contenedor">
+        <br>
+        <div class="row">
+
+            <!-- Artículo Principal -->
+            <main class="col-md-12">
+                <article class="bg-white p-4 border rounded">
+                    <!------------------------------------------------------------------------------------------------------->
+
+                    <h1 class="text-center">Pasos para crear un CRUD en Django</h1>
+                    <br>
+                    <div class="texto-contenedor">
+                        <ol>
+                            <h4>CONFIGURACIÓN INICIAL DEL PROYECTO Y APLICACIÓN WEB</h4>
+
+                            <li>Seleccionar la carpeta física en la terminal donde estará el proyecto: 
+                                <br><b>cd/Desktop/pia</b>.</li><br>
+
+                            <li>En la misma consola/terminal crear el nuevo proyecto
+                                <br><b>django-admin startproject modulo</b></li><br>
+
+                            <li>Una vez creado el proyecto, abrimos la carpeta en Visual Studio Code y
+                                seleccionamos nueva terminal. Ahí creamos la nueva carpeta que contendrá
+                                las aplicaciones (módulos) de nuestro proyecto.
+                                <br><b>Windows: md modulo
+                                <br>Mac: mkdir modulo</b></li><br>
+
+                            <li>Ahora nos ubicamos dentro de la carpeta modulo
+                                <br><b>cd modulo</b></li><br>
+
+                            <li>Una vez seleccionado la carpeta, creamos nuestra primer aplicación / modulo
+                                del sistema
+                                <br><b>django-admin startapp pedidos</b></li><br>
+                                
+                            <li>Una vez creado el proyecto volvemos a la raiz de la carpeta
+                                <br><b>cd ..</b></li><br>
+
+                            <li>Ahora se tiene que registrar la nueva aplicación creada en el archivo settings.py
+                                de la carpeta principal (pia)</li>
+                                <img src="img/paso7.png"><br><br>
+
+                            <li>En el mismo archivo settings.py configurar el nombre de la base de datos SQLite</li>
+                                <img src="img/img8.png"><br><br>
+
+                            <li>Sobre el mismo archivo settings.py habrá que configurar el lenguaje y zona
+                                horaria para la configuración del proyecto.</li>
+                                <img src="img/img9.png"><br><br>
+
+                            <li>Ahora dentro de la aplicación creada (pedidos) seleccionamos el archivo
+                                models.py para crear la arquitectura/modelo/clase que permite el mapeo de
+                                objetos relacionados “ORM” para la gestión de los datos en la base de datos.</li>
+                                <img src="img/img10.png" width="700" height="400"><br><br>
+
+                            <li>Sobre la misma carpeta seleccionamos el archivo admin.py el cual permitira la
+                                gestión de la información con el administrador de Django.</li>
+                                <img src="img/img11.png"><br><br>
+
+                            <li>Volvemos a la terminal para realizar la migración inicial de nuestro proyecto
+                                (ejecutar y registrar cambios), en la terminal se escribe el siguiente comando.
+                                <br><b>python manage.py migrate</b>
+                                <br><b>NOTA:</b> Debemos estar en la carpeta raiz del proyecto (pia).
+                                Si marca error hay que revisar el archivo app.py y colocarle el nombre de la
+                                carpeta.</li>
+                                <img src="img/img12.png"><br><br>
+
+                            <li>Ahora debemos migrar el modelo creado como una tabla de SQL por eso desde
+                                consola colocamos la sentencia.
+                                <br><b>python manage.py makemigrations</b></li><br>
+
+                            <br>
+                            <h4>CONFIGURACIÓN DE CONTROL ADMINISTRATIVO DJANGO (SUPER USUARIO)</h4>
+
+                            <li>El superusuario va a permitir interactuar directamente con la interfaz de django
+                                para el funcionamiento de permisos de administrador.
+                                <br><b>python manage.py createsuperuser</b>
+                                <br><u>Ignoramos el error y colocamos usuario, correo y password</u>
+                                <br>
+                                <br>Una vez hecho este paso volvemos a ejecutar
+                                <br><b>python manage.py makemigrations</b></li><br>
+
+                            <li>Limpiamos/cerramos la terminal y ejecutamos el sevidor
+                                <br><b>python manage.py runserver</b></li><br>
+                                <img src="img/img15.PNG" width="500" height="250">
+
+                            <li>Listo, ahora que esta configurado podemos entrar al panel de adminsitrador
+                                colocando la liga <u>http://127.0.0.1:8000/admin</u>
+                                Ingresamos con usuario y contraseña creada en el paso 14</li>
+                                <img src="img/img16.png">
+                                <img src="img/img16-2.png" width="450" height="200"><br><br>
+                            
+                            <li>Una vez creado el usuario y entrado a admin tenemos que hacer una nueva
+                                migracion (por cada cambio aplicado) para poder crear registros y ver cambios.
+                                <br><b>python manage.py migrate</b>
+                                <br><b>NOTA:</b> <u>Si al actualizar el admin marca el error 404 es porque el servidor de
+                                apago, por lo que es necesario volver a ejecutarlo (paso 15).</u></li>
+
+                            <li>Realizamos un registro de prueba dando clic en el boton “Agregar” dentro de la
+                                tabla.
+                                <br><img src="img/img18.png" width="500" height="250">
+                                <br>Si todo esta bien, veremos el resultado de la pantalla anterior, el problema es
+                                que no se distingue el registro (paso 19).</li><br>
+
+                            <li>En el archivo models.py dentro de la carpeta aplicación hay que agregar un
+                                metodo str para poder crear una “vista” de registros dentro de los registros de la
+                                base de datos.</li>
+                                <img src="img/img19.png" width="750" height="250"><br><br>
+                                <img src="img/img19-2.png" width="600" height="250"><br><br>
+
+                            <h4>CREAR INTERFACES GRAFICAS</h4>
+                            <br>
+
+                            <li>Ahora bien, se tienen que crear las interfaces graficas/templates HTML + CSS
+                                JavaScript para que el usuario interactue con la aplicación.
+                                Para este paso se puede cerrar sesión del admin de django y podemos apagar
+                                el server (CTRL + C en consola) y la cerramos.
+                                <br>Dentro de la carpeta de módulo damos clic derecho y creamos una nueva
+                                carpeta bajo el nombre de templates, hay que respetar este nombre porque
+                                django reconoce a la caperta como la contenedora de los archivos HTML.
+                                <br><u>NOTA: En caso de colocarle otro nombre es necesario crear una configuracion
+                                adicional, pero no se recomienda.</u></li>
+                                <img src="img/img20.png" width="550" height="250"><br><br>
+
+                            <li>Dentro de la carpeta templeates creada agregamos un nuevo archivo html.
+                                En este caso se le donomino “adminAlumno.html”<br>
+                                <img src="img/img21.png" width="550" height="250">
+                                <br><br>
+                                En este archivo se crea toda la interfaz grafica de la aplicacipon utilinzado HTML5 +
+                                CSS + JavaScript y adicional algunos frameworks externos como bootstrap,
+                                fontawsome, etc.
+                                <br>Ejemplo:<br>
+                                <img src="img/img21-2.png" width="550" height="250">
+                                </li>
+
+                            <li>Para configurar el proyecto para que reconozca la página web por medio de la
+                                interfaz debemos crear un nuevo archivo urls.py dentro de la aplicación para
+                                posteriormente configurar la nueva ruta de acceso.</li>
+                                <img src="img/img22.png" width="600" height="400"><br>
+                                <img src="img/img22-2.png" width="350" height="170">
+
+                            <li>Ahora debemos configurar el archivo views.py para poder acceder a la ruta
+                                creada en el archivo urls.py creado anteriormente.</li>
+                                <img src="img/img23.png" width="450" height="150">
+
+                            <li>Posteriormente, vamos a la urls.py del <b>proyecto en general</b> y agregamos el
+                                conjunto de las rutas creadas dentro de las urls.py de la aplicación, para eso
+                                modificamos el archivo para que quede de la siguiente manera.</li>
+                                <img src="img/img24.png" width="450" height="150">
+
+                            <li>Volvemos a abrir una terminal y ejecutamos el <b>runserver</b>
+                                Obtenemos el siguiente resultado</li>
+                                <img src="img/img25.png" width="650" height="150">
+
+                            <li>Si todo es correcto, ahora vamos a listar los registros de las bases de datos a la
+                                interfaz. Para este paso nos dirigimos a views.py de la aplicación y modificamos
+                                lo siguiente.</li>
+                                <img src="img/img26.png" width="450" height="150">
+
+                            <li>Ahora en la interfaz agregamos una lista para mostrar los registros.</li>
+                                <img src="img/img27.png" width="500" height="300">
+                                <img src="img/img27-2.png">
+
+                            <li>Para dar diseño se utilizará principalmente Bootstrap y CSS para <b>evitar pegar
+                                los cdn y todos los scripts en cada una de las paginas vamos a crear un
+                                diseño general</b> para todo el sitio, para eso creamos un archivo plantilla.html
+                                donde se encuentra el adminAlumno.html y vamos a pegar toda la estructura
+                                HTML y referencias externas.</li>
+                                <img src="img/img28.png" width="500" height="800">
+                                <img src="img/img28-2.png" width="350" height="100"><br><br>
+                                <img src="img/img28-3.png" width="600" height="400"><br><br>
+
+                            <li>Como ya se tiene una plantilla, el archivo adminAlumno.html, ahora solo
+                                quedara de la siguiente manera.
+                                <img src="img/img29.png" width="600" height="600">
+                                <img src="img/img29-2.png" width="600" height="800">
+                                <img src="img/img29-3.png" width="550" height="600"><br><br>
+                                <img src="img/img29-4.png" width="750" height="400"><br><br>
+                                <b>NOTA:</b> Se tienen que agregar todos los campos</li><br><br>
+
+                            <h4>FUNCIONALIDADES DEL CRUD EN DJANGO</h4>
+                            <p>Para comenzar a dar la funcionalidad correspondiente a un CRUD.</p>
+
+                            <h4>CREATE</h4>
+                        </ol>
+                        <ol start="1">
+                            <li>Debemos definir el botón Guardar de type submit, que es importante recordar que está
+                                dentro de las etiquetas de < form >.
+                                <br>En el < form > se debe definir el action y el method, de la siguiente manera:
+                                <br>a. action: <b>/registrarAlumno/</b> (define la ruta de acceso a donde se enviarán
+                                los datos del formulario)
+                                <br>b. method: <b>post</b> (método para obtener los datos externos de un formulario)
+                                <br>Adicionalmente debemos agregar de igual forma el bloque csrf_token que es
+                                una forma de “proteger” la información enviada al servidor.</li>
+                                <img src="img/2-img1.png" width="750" height="80">
+                            
+                            <li>Ahora debemos crear la URL que se definio anteriormente para el envio del
+                                formulario, dentro del archivo urls.py de la aplicación.</li>
+                                <img src="img/2-img2.png" width="650" height="250">
+
+                            <li>Marcara un pequeño error en la terminal debido a que aun no existe la vista
+                                registrarAlumno, por lo que debemos crearla dentro del archivo views.py de la
+                                aplicación, en esta vista se define la función que recibe los datos del formulario
+                                desde la interfaz gráfica.
+                                <img src="img/2-img3.png" width="700" height="800">
+                                <br><b>NOTA:</b> Aquí van todos los campos de la tabla que son obligatorios.
+                                Se importa la librería redirect que permite redireccionar la aplicación después
+                                de realizar cierta acción, posteriormente la función “registrarAlumno” obtiene
+                                todos los valores de los input de la parte grafica y los asigna a los objetos del
+                                modelo. Por ultimo se hace la función “INSERT” a la base de datos por medio
+                                del método create se le pasan todos los parámetros y retorna al inicio.
+                                <br><b>NOTA:</b> Para este punto si no funciona, se recomienda apagar y volver a ejecutar
+                                el servidor.
+                                <br>Apagar: CTRL + C desde la terminal donde se esta ejecutando.
+                                <br>En caso de marcar error hay que agregar la propiedad name a los
+                                controles con el mismo Id.
+                                <br>Ejemplo:
+                                <br><img src="img/2-img3-2.png" width="800" height="100">
+                                <br>Listo, ya deberia estar hacienda registros.<br><br>
+                                <img src="img/2-img3-3.png" width="800" height="700"></li>
+                                <br>
+
+                            <h4>READ</h4>
+                            <p>Esta acción basicamente ya la habimos desarrollado en el archivo anterior, donde
+                                listamos los campos de la base de datos en la tabla.<br>
+                                <img src="img/read.PNG" width="700" height="300"><br>
+                                Antes de hacer las acciones siguientes de editar y eliminar, es necesario diseñar los
+                                controles que permitan realizar dichas acciones, para eso nos vamos al archivo
+                                adminAlumno.html que contiene la interfaz del modulo y editamos la tabla.
+                                <img src="img/read-2.png" width="800" height="900">
+                                <br>Básicamente se agrega una nueva columna < th > que va agrupar los botones
+                                    correspondientes de tipo < a > y dentro del contenido se agregar ambos en un < td >
+                                    <br>Los botones tienen que estar definidos como links < a > debido a que harán
+                                    una redirección a la accion correspondiente.
+                                    <br>El href se definen las rutas de las acciones y se les pasa el valor del Id con el
+                                    que se aplicaron los cambios en la base de datos.
+                                    <br><img src="img/read-3.png" width="800" height="700">
+                            </p><br>
+
+                            <h4>UPDATE</h4>
+                            <p>En el archivo de urls.py de la aplicación creamos la ruta para la acción de editar
+                                en el urlpatterns.
+                                <img src="img/update.png" width="750" height="100">
+                                <br>En el archivo views.py de la aplicación creamos la funcion que reciba el
+                                parametro para que realice la redirección a una nueva página web html que
+                                contenga un formulario para editar.
+                                <img src="img/update-2.png" width="800" height="200"><br><br>
+                                Creamos la nueva página web editAlumno.html dentro de la carpeta de
+                                templates.
+                                Seria igual al formulario de registro pero con ciertas modificaciones como:
+                                <br>• Cambio de titulos para que haga referencia a la edición
+                                <br>• Sólo el formulario sin tabla
+                                <br>• Bloqueo de controles readonly para solo lectura
+                                <br>• Cambio en el action del < form > por la ruta de edición
+                                <br>• Values en cada control para obtener los datos de la base de datos de
+                                acuerdo con el Id seleccionado<br>
+                                <img src="img/update-3.png" width="800" height="900">
+                                <img src="img/update-4.png" width="800" height="900">
+                                <img src="img/update-5.png" width="800" height="900">
+                                <img src="img/update-6.png" width="700" height="600">
+                            </p>
+                        </ol>
+                    </div>
+
+                    <!-------------------------------------------------------------------------------------------------------->
+
+                </article>
+            </main>
+        </div>
+        <br>
+    </div>
+
+    <!--Pie de pagina-->
+    <footer>
+        <div class="container ">
+            <br>
+            <b>
+                <p> Realizado por:</p>
+                <p> Jesús Jahaziel Gutiérrez Alfaro #2022202</p>
+                <p> Lesly Nohemi Álvarez Peña #2018663</p>
+            </b>
+        </div>
+        <br>
+    </footer>
+</body>
+
+</html>
